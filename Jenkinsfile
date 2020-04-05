@@ -31,7 +31,7 @@ pipeline {
             }
         }
         stage('Deliver') { 
-            agent any
+            agent { node { label 'vagrant' } } 
             environment { 
                 VOLUME = '$(pwd)/sources:/src'
                 IMAGE = 'cdrx/pyinstaller-linux:python2'
